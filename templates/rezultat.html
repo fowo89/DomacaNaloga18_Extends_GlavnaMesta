@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block vsebina %}
+
+     {% if odgovor.lower() == pravilen_odgovor.lower() %}
+        <h2> Bravo! Glavno mesto drzave {{ drzava }} je res {{ pravilen_odgovor }}!</h2>
+
+    {% else %}
+        <h2> Tvoj odgovor je napacen! </h2>
+
+    {% endif %}
+
+    <a href="/">Zelis poskusiti znova?</a>
+
+
+{% endblock vsebina %}

@@ -1,12 +1,20 @@
-<!DOCTYPE html>
-<html>
-<head lang="en">
-    <meta charset="UTF-8">
-    <title>SmartNinja basic Jinja template</title>
+{% extends "base.html" %}
 
-    <link rel="stylesheet" href="/assets/css/style.css">
-</head>
-<body>
-    <h1>Hello, SmartNinja!</h1>
-</body>
-</html>
+{% block vsebina %}
+
+    <h2>Pozdravljen v igri Ugani glavno mesto drzave!</h2>
+    <h3>Katero je glavno mesto drzave {{ prestolnica.drzava }}?</h3>
+    <br>
+    <img src="{{ prestolnica.slika }}">
+    <br>
+    <form method="post" action="/rezultat">
+        <label for="input-prestolnica">Ime prestolnice drzave {{ prestolnica.drzava }} je: </label>
+        <input type="text" id="input-prestolnica" name="prestolnica">
+        <input type="hidden" value="{{ random_index }}" name="random_index">
+        <input type="hidden" value="{{ prestolnica.drzava }}" name="drzava">
+        <br>
+        <br>
+        <button type="submit">Preveri svoj odgovor!</button>
+    </form>
+
+{% endblock vsebina %}
